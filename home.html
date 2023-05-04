@@ -1,0 +1,851 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <!----NAV BAR------>
+    <nav class="bg-gray-100">
+      <div class="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button
+              type="button"
+              id="dropdownBtn"
+              class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="block h-6 w-6"
+                id="close"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+              <svg
+                id="open"
+                class="hidden h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+          >
+            <div class="flex flex-shrink-0 items-center">
+              <img
+                class="block h-8 w-auto lg:hidden"
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                alt="Your Company"
+              />
+              <img
+                class="hidden h-8 w-auto lg:block"
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                alt="Your Company"
+              />
+            </div>
+            <div id="dropdownMenu" class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a
+                  href="home.html"
+                  class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+                  aria-current="page"
+                  >Home</a
+                >
+                <a
+                  href="products.html"
+                  class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+                  >products</a
+                >
+                <a
+                  href="contact-us.html"
+                  class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+                  >Contact Us</a
+                >
+                <a
+                  href="faqs.html"
+                  class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+          >
+            <button
+              type="button"
+              class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            >
+              <span class="sr-only">View notifications</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                />
+              </svg>
+            </button>
+
+            <!-- Profile dropdown -->
+            <div class="relative ml-3">
+              <div>
+                <button
+                  type="button"
+                  class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  <span class="sr-only">Open user menu</span>
+                  <img
+                    class="h-8 w-8 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div
+                class="absolute hidden right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                id="menu"
+                tabindex="-1"
+              >
+                <script>
+                  const menu = document.getElementById("menu");
+                  const menuButton =
+                    document.getElementById("user-menu-button");
+                  var menuOpen = false;
+                  menuButton.addEventListener("click", (e) => {
+                    console.log(menu.classList);
+                    if (menuOpen) menu.classList.remove("hidden");
+                    if (!menuOpen) menu.classList.add("hidden");
+                    menuOpen = !menuOpen;
+                    console.log(menuOpen);
+                  });
+                </script>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  tabindex="-1"
+                  id="user-menu-item-0"
+                  >Your Profile</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-0"
+                  >Your Orders</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-1"
+                  >Settings</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-2"
+                  >Sign out</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="hidden md:hidden lg:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a
+            href="home.html"
+            class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+            aria-current="page"
+            >Home</a
+          >
+          <a
+            href="products.html"
+            class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+            >products</a
+          >
+          <a
+            href="contact-us.html"
+            class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+            >Contact Us</a
+          >
+          <a
+            href="faqs.html"
+            class="text-gray-800 font-bold hover:bg-orange-300 hover:text-white rounded-md px-3 py-2 text-sm"
+            >FAQs</a
+          >
+        </div>
+      </div>
+      <script>
+        let dropdownOpen = false;
+        const openIcon = document.getElementById("open");
+        const closeIcon = document.getElementById("close");
+        const dropdownBtn = document.getElementById("dropdownBtn");
+        const dropdownMenu = document.getElementById("mobile-menu");
+        dropdownBtn.addEventListener("click", (e) => {
+          if (dropdownOpen) {
+            closeIcon.classList.replace("hidden", "block");
+            openIcon.classList.replace("block", "hidden");
+            dropdownMenu.classList.replace("block", "hidden");
+          }
+          if (!dropdownOpen) {
+            openIcon.classList.replace("hidden", "block");
+            closeIcon.classList.replace("block", "hidden");
+            dropdownMenu.classList.replace("hidden", "block");
+          }
+          dropdownOpen = !dropdownOpen;
+        });
+      </script>
+    </nav>
+    <!----NAV BAR------>
+    <!---BANNER ADS------>
+    <div class="relative">
+      <div class="overflow-hidden">
+        <div class="flex">
+          <div class="w-full">
+            <div id="carousel" class="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://picsum.photos/id/1018/1200/500"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://picsum.photos/id/1021/1200/500"
+                    alt="Image 2"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://picsum.photos/id/1039/1200/500"
+                    alt="Image 3"
+                  />
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#" role="button">
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#" role="button">
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("carousel-item");
+        var dots = document
+          .getElementsByClassName("carousel-indicators")[0]
+          .getElementsByTagName("li");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
+      }
+    </script>
+
+    <!---BANNER ADS------>
+    <main class="max-w-7xl mx-auto px-10">
+      <!-----FEATURED PRODUCTS-------------------------->
+      <section>
+        <h1 class="text-3xl py-5">Hot Sales</h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+        </div>
+      </section>
+      <!-----FEATURED PRODUCTS------>
+      <!------DEALS & DISCOUNTS------>
+      <section class="pt-20">
+        <h1 class="text-3xl py-5">Super Deals</h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+          <!---- PRODUCT CARD ----->
+          <div
+            class="max-w-sm relative rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+            <img
+              class="w-full h-64 object-cover"
+              src="https://picsum.photos/id/1018/1200/500"
+              alt="Product Image"
+            />
+            <div class="absolute top-2 right-0">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >25% off</span
+              >
+            </div>
+            <div class="px-3 py-3">
+              <div class="flex justify-between">
+                <div class="font-bold text-lg mb-2">Product Title</div>
+                <div class="float-right font-bold text-lg">$50.00</div>
+              </div>
+              <p class="text-gray-700 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce...
+              </p>
+            </div>
+            <div class="flex w-full px-2 pt-2 pb-2">
+              <button
+                class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="bg-green-500 w-full hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <!---- PRODUCT CARD ----->
+        </div>
+      </section>
+      <!------DEALS & DISCOUNTS------>
+      <!---------STORES--------->
+      <section class="py-20">
+        <h1 class="text-3xl py-5">Featured Stores</h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <!-------STORE CARD--------->
+          <div
+            class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+          >
+            <div class="md:flex">
+              <div class="flex justify-center sm:pt-5">
+                <div
+                  class="h-24 w-24 md:h-full md:w-48 flex items-center justify-center"
+                >
+                  <img
+                    class="h-24 w-24 rounded-full"
+                    src="https://via.placeholder.com/150"
+                    alt="Store Logo"
+                  />
+                </div>
+              </div>
+              <div class="p-8">
+                <div
+                  class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                >
+                  Store Name
+                </div>
+                <a
+                  href="#"
+                  class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                  >Store Description</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-------STORE CARD--------->
+          <!-------STORE CARD--------->
+          <div
+            class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+          >
+            <div class="md:flex">
+              <div class="flex justify-center sm:pt-5">
+                <div
+                  class="h-24 w-24 md:h-full md:w-48 flex items-center justify-center"
+                >
+                  <img
+                    class="h-24 w-24 rounded-full"
+                    src="https://via.placeholder.com/150"
+                    alt="Store Logo"
+                  />
+                </div>
+              </div>
+              <div class="p-8">
+                <div
+                  class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                >
+                  Store Name
+                </div>
+                <a
+                  href="#"
+                  class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                  >Store Description</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-------STORE CARD--------->
+          <!-------STORE CARD--------->
+          <div
+            class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+          >
+            <div class="md:flex">
+              <div class="flex justify-center sm:pt-5">
+                <div
+                  class="h-24 w-24 md:h-full md:w-48 flex items-center justify-center"
+                >
+                  <img
+                    class="h-24 w-24 rounded-full"
+                    src="https://via.placeholder.com/150"
+                    alt="Store Logo"
+                  />
+                </div>
+              </div>
+              <div class="p-8">
+                <div
+                  class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
+                >
+                  Store Name
+                </div>
+                <a
+                  href="#"
+                  class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                  >Store Description</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-------STORE CARD--------->
+      </section>
+
+      <!---------STORES--------->
+      <!-----REVIEWS-------->
+      <section class="py-20">
+        <h1 class="text-3xl py-5">Customer Reviews</h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!----REVIEW CARD---->
+          <div
+            class="flex items-center border border-gray-200 rounded-md px-2 py-2"
+          >
+            <div class="flex-shrink-0">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/women/64.jpg"
+                alt="User Image"
+              />
+            </div>
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+              <div class="text-sm text-gray-500">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                vitae feugiat mi. Morbi vel felis ac metus volutpat sagittis sit
+                amet et ipsum.
+              </div>
+            </div>
+          </div>
+          <!----REVIEW CARD---->
+          <!----REVIEW CARD---->
+          <div
+            class="flex items-center border border-gray-200 rounded-md px-2 py-2"
+          >
+            <div class="flex-shrink-0">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/women/64.jpg"
+                alt="User Image"
+              />
+            </div>
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+              <div class="text-sm text-gray-500">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                vitae feugiat mi. Morbi vel felis ac metus volutpat sagittis sit
+                amet et ipsum.
+              </div>
+            </div>
+          </div>
+          <!----REVIEW CARD---->
+          <!----REVIEW CARD---->
+          <div
+            class="flex items-center border border-gray-200 rounded-md px-2 py-2"
+          >
+            <div class="flex-shrink-0">
+              <img
+                class="h-10 w-10 rounded-full"
+                src="https://randomuser.me/api/portraits/women/64.jpg"
+                alt="User Image"
+              />
+            </div>
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+              <div class="text-sm text-gray-500">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                vitae feugiat mi. Morbi vel felis ac metus volutpat sagittis sit
+                amet et ipsum.
+              </div>
+            </div>
+          </div>
+          <!----REVIEW CARD---->
+        </div>
+      </section>
+      <!-----REVIEWS-------->
+    </main>
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl font-bold">Company Name</h2>
+          <p class="mt-3">123 Main St, New York, NY 10001</p>
+          <p class="mt-3">Phone: (555) 555-5555</p>
+        </div>
+        <div class="mt-6 md:mt-0">
+          <a href="#" class="text-gray-300 hover:text-gray-100 mr-4"
+            >Privacy Policy</a
+          >
+          <a href="#" class="text-gray-300 hover:text-gray-100 mr-4"
+            >Terms of Service</a
+          >
+          <a href="#" class="text-gray-300 hover:text-gray-100">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
