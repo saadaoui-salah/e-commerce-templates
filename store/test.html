@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="flex sidebar flex-col w-64 bg-gray-800">
+        <div class="p-4">
+          <button
+            id="toggleSidebar"
+            class="text-gray-300 hover:text-white focus:outline-none"
+          >
+            open
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 p-4">
+        <button onclick="toggleSidebar()">open</button>
+        <h1 class="text-2xl font-bold">Welcome to my website!</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+          ultricies sed, dolor.
+        </p>
+      </div>
+    </div>
+    <style>
+      .sidebar {
+        transition: transform 0.3s ease-in-out;
+      }
+      .sidebar-closed {
+        transform: translateX(-6000px);
+      }
+      .sidebar-open {
+        transform: translateX(0);
+      }
+    </style>
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+      const toggleSidebarButton = document.querySelector("#toggleSidebar");
+      let open_ = true;
+      function toggleSidebar() {
+        if (open_) {
+          sidebar.classList.add("sidebar-closed", "hidden");
+        } else {
+          sidebar.classList.remove("hidden");
+          sidebar.classList.add("sidebar-open");
+        }
+        open_ = !open_;
+      }
+
+      toggleSidebarButton.addEventListener("click", toggleSidebar);
+    </script>
+  </body>
+</html>

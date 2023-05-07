@@ -241,9 +241,16 @@
       </script>
     </nav>
     <!----NAV BAR------>
-    <main>
-      <div class="flex">
-        <div class="w-1/5 p-2 h-screen bg-gray-50">
+    <main class="flex w-full">
+      <!--------CATEGORIES------->
+      <!---
+        fixed z-10
+        --->
+      <div
+        id="sidebar"
+        class="flex border border-r-slate-300 relative bg-gray-50 flex-col w-64 overflow-y-auto"
+      >
+        <div class="p-2 h-screen">
           <ul class="list-none p-0 m-0">
             <li class="p-3">
               <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
@@ -347,7 +354,80 @@
             </li>
           </ul>
         </div>
-        <div class="w-4/5 p-6">
+        <!--------CATEGORIES---------->
+      </div>
+      <div class="flex-1 pl-6 pt-2 relative">
+        <!-----ARROW BTN-------->
+        <div
+          class="absolute top-16 border border-gray-300 hover:border-gray-500 border-l-0 rounded-md rounded-l-none bg-gray-50 z-10 left-0 px-1 p-2"
+        >
+          <button id="toggleSidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <script>
+            const sidebar = document.querySelector("#sidebar");
+            const btn = document.querySelector("#toggleSidebar");
+            let open_ = true;
+            function toggleSidebar() {
+              if (!open_) {
+                sidebar.classList.remove("hidden");
+                btn.innerHTML = `
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke-width="1.5" 
+                      stroke="currentColor" 
+                      class="w-6 h-6">
+                      <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        d="M15.75 19.5L8.25 12l7.5-7.5" 
+                        />
+                    </svg>
+
+                `;
+              } else {
+                sidebar.classList.add("hidden");
+                btn.innerHTML = `
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                `;
+              }
+              console.log(sidebar.className);
+              open_ = !open_;
+            }
+
+            btn.addEventListener("click", toggleSidebar);
+          </script>
+        </div>
+        <!-----ARROW BTN----->
+        <div class="overflow-y-scroll h-screen p-4">
           <div
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
           >
@@ -676,10 +756,1894 @@
               </div>
             </div>
             <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
+            <!-- product card -->
+            <div
+              class="max-w-sm rounded relative overflow-hidden shadow-md hover:shadow-lg"
+            >
+              <img
+                class="w-full h-48"
+                src="https://picsum.photos/id/1018/1200/500"
+                alt="Product Image"
+              />
+              <div class="px-6 py-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h2 class="font-bold text-xl mb-2">Product Title</h2>
+                  <span
+                    class="absolute top-2 right-2 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    >10% off</span
+                  >
+                  <div class="text-lg font-bold text-gray-900">$90</div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current mr-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                    <svg
+                      class="text-gray-600 w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----  product card  ------->
           </div>
         </div>
       </div>
-
       <script>
         function toggleSubcategories(elem) {
           const subcategories = elem.nextElementSibling;
