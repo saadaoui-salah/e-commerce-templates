@@ -252,14 +252,25 @@
           <div class="flex justify-center">
             <div class="block space-y-4 mr-2">
               <img
-                class="w-14 w-14 border border-orange-300 border-2"
-                src="https://via.placeholder.com/450"
-              />
-              <img class="w-14 w-14" src="https://via.placeholder.com/450" />
-              <img class="w-14 w-14" src="https://via.placeholder.com/450" />
-            </div>
-            <img class="w-96 h-96" src="https://via.placeholder.com/450" />
+              src="https://via.placeholder.com/450"
+              class="max-w-[60px] max-h-[60px] cursor-pointer md:mb-2"
+              onclick="showImage('small-image-1.jpg')"
+            />
+            <img
+              src="https://via.placeholder.com/450"
+              class="max-w-[60px] max-h-[60px] cursor-pointer md:mb-2"
+              onclick="showImage('small-image-2.jpg')"
+            />
+            <img
+              src="https://via.placeholder.com/450"
+              class="max-w-[60px] max-h-[60px] cursor-pointer ring-2 ring-yellow-500 ring-offset-2"
+              onclick="showImage('small-image-3.jpg')"
+            />
           </div>
+          <img
+            src="https://via.placeholder.com/450"
+            class="max-sm:max-w-[300px] max-sm:max-h-[300px] max-md:max-w-[400px] max-h-[400px]"
+          />
         </section>
 
         <!-- Product info -->
@@ -633,12 +644,13 @@
                 </fieldset>
               </div>
 
-              <button
+              <a
                 type="submit"
+                href="./cart.html"
                 class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to bag
-              </button>
+              </a>
             </form>
           </div>
 
@@ -701,6 +713,7 @@
         </div>
       </div>
       <!-----PRODUCT DETAILS------->
+
       <!-------REEVIEWS ----->
       <div class="flex flex-wrap gap-4 w-full justify-center">
         <div class="border border-gray-200 rounded-lg w-80 p-4 h-56">
