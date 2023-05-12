@@ -241,15 +241,15 @@
       </script>
     </nav>
     <!----NAV BAR------>
-    <main class="flex w-full">
+    <main class="w-full">
       <!--------CATEGORIES------->
       <div
         id="paper"
-        class="hidden absolute z-20 w-full h-full bg-gray-900 opacity-40"
+        class="hidden absolute z-20 w-[99vw] h-screen bg-gray-900 opacity-40"
       ></div>
       <div
         id="sidebar"
-        class="flex animation hidden-side border w-fu absolute z-30 border-r-slate-300 bg-gray-50 flex-col w-64"
+        class="flex animation h-screen hidden-side border absolute z-30 border-r-slate-300 bg-gray-50 flex-col w-64"
       >
         <!-----ARROW BTN-------->
         <div
@@ -332,114 +332,206 @@
             btn.addEventListener("click", toggleSidebar);
           </script>
         </div>
-        <!-----ARROW BTN----->
-        <div class="p-2 h-screen overflow-y-auto">
-          <ul class="list-none p-0 m-0">
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 1</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 1.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 1.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 2</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 2.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 2.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 2.3</a></li>
-              </ul>
-            </li>
-            <li class="p-3">
-              <a href="#" class="font-bold" onclick="toggleSubcategories(this)"
-                >Category 3</a
-              >
-              <ul class="list-none pl-5 hidden">
-                <li class="py-2"><a href="#">Subcategory 3.1</a></li>
-                <li class="py-2"><a href="#">Subcategory 3.2</a></li>
-                <li class="py-2"><a href="#">Subcategory 3.3</a></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="overflow-y-auto">
+          <!-----ARROW BTN----->
+          <div class="p-2">
+            <ul class="list-none p-0 m-0">
+              <li class="block p-3">
+                <label for="price" class="font-bold">Price:</label>
+                <div class="flex items-center">
+                  <label for="from" class="pr-1">From: </label>
+                  <input
+                    type="text"
+                    class="p-1 ml-1 w-16 border border-gray-300 rounded-md"
+                  />
+                  <label for="from" class="px-2">To: </label>
+                  <input
+                    type="text"
+                    class="p-1 ml-1 w-16 border border-gray-300 rounded-md"
+                  />
+                </div>
+              </li>
+              <li class="flex mt-2 p-3 items-center">
+                <p class="pr-2 font-bold">Ratings:</p>
+                <div class="flex items-center">
+                  <svg
+                    class="text-gray-600 w-4 h-4 fill-current mr-1"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                    />
+                  </svg>
+                  <svg
+                    class="text-gray-600 w-4 h-4 fill-current mr-1"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                    />
+                  </svg>
+                  <svg
+                    class="text-gray-600 w-4 h-4 fill-current mr-1"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                    />
+                  </svg>
+                  <svg
+                    class="text-gray-600 w-4 h-4 fill-current mr-1"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                    />
+                  </svg>
+                  <svg
+                    class="text-gray-600 w-4 h-4 fill-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 15.4L18.3 19l-1.4-7.7L22 9.3l-7.7-1L12 1.7 9.7 8.3 2 9.3l5.1 5L5 22l7-3.3z"
+                    />
+                  </svg>
+                </div>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 1</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 1.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 1.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 2</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 2.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 2.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 2.3</a></li>
+                </ul>
+              </li>
+              <li class="p-3">
+                <a
+                  href="#"
+                  class="font-bold"
+                  onclick="toggleSubcategories(this)"
+                  >Category 3</a
+                >
+                <ul class="list-none pl-5 hidden">
+                  <li class="py-2"><a href="#">Subcategory 3.1</a></li>
+                  <li class="py-2"><a href="#">Subcategory 3.2</a></li>
+                  <li class="py-2"><a href="#">Subcategory 3.3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <!--------CATEGORIES---------->
-      <div class="flex-1 pl-6 pt-6">
+      <div class="flex-1 pl-6 pt-6 h-full">
         <div class="flex max-sm:block itmes-center justify-between px-4 pb-4">
           <div class="flex">
             <div
@@ -521,7 +613,9 @@
           </div>
         </div>
         <div class="overflow-y-scroll h-screen p-4">
-          <div class="flex items-center justify-start flex-wrap gap-4">
+          <div
+            class="flex items-center justify-start flex-wrap gap-4 pb-32 relative -z-30"
+          >
             <!-- product card -->
             <div
               class="w-52 border border-gray-200 rounded relative overflow-hidden hover:shadow-sm"
@@ -1741,6 +1835,28 @@
           </div>
         </div>
       </div>
+
+      <!-----FILTERS------>
+      <div
+        class="absolute p-5 rounded-full cursor-pointer shadow-lg text-white font-bold bottom-5 right-5 bg-blue-400 hover:bg-blue-600"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z"
+          />
+        </svg>
+      </div>
+
+      <!-----FILTERS------>
 
       <script>
         function toggleSubcategories(elem) {
